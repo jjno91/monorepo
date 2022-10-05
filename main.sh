@@ -1,5 +1,8 @@
 #!/bin/bash -ex
 
+# preflight checks
+aws sts get-caller-identity > /dev/null || echo "AWS Authentication Failed" && exit 1
+
 export DIRECTORY=${DIRECTORY:-terraform}
 export BACKEND_PREFIX=${BACKEND_PREFIX:-terraform-backend}
 
