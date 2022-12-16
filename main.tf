@@ -5,3 +5,5 @@ resource "aws_ssm_parameter" "this" {
 }
 
 variable "name" { default = "monorepo" }
+
+# trigger deploy
