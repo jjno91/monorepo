@@ -5,6 +5,10 @@ on:
     workflows: build
     types: completed
 
+env:
+  BRANCH: ${{ github.event.workflow_run.head_branch }}
+  EVENT_CONTEXT: ${{ toJSON(github.event) }}
+
 jobs:
   main:
     runs-on: ubuntu-latest
