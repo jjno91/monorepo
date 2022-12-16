@@ -7,6 +7,7 @@ on:
 
 env:
   BRANCH: ${{ github.event.workflow_run.branch }}
+  ACTION_TOKEN: ${{ secrets.ACTION_TOKEN }}
 
 jobs:
   build:
