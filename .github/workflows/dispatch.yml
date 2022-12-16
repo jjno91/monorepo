@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.name == 'build' }}
+    if: ${{ github.event.workflow_run.name == env.GITHUB_JOB }}
     steps:
       - run: echo "trigger apply"
       - run: env
