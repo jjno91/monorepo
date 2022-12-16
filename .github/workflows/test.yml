@@ -10,7 +10,6 @@ jobs:
       - run: git branch
   test:
     runs-on: ubuntu-latest
-    needs: job1
     steps:
       - uses: actions/checkout@v3
       - run: git branch
