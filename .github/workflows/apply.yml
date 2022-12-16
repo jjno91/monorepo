@@ -2,7 +2,7 @@ name: apply
 
 on:
   workflow_run:
-    workflows: main
+    workflows: build
     types: completed
 
 jobs:
