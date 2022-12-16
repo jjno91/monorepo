@@ -1,5 +1,9 @@
 name: test
-on: workflow_dispatch
+
+on:
+  workflow_run:
+    workflows: apply
+    types: completed
 
 jobs:
   main:
