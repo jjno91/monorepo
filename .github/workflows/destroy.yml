@@ -1,8 +1,9 @@
-name: Destroy
-on: delete
+name: destroy
+on: delete # workflow_dispatch enables the destruction of protected branches
 
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - run: echo
+      - uses: actions/checkout@v3
+      - run: echo "destroy {{ github.event.workflow_run.branch }}"
