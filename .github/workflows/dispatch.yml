@@ -6,7 +6,7 @@ on:
     types: completed
 
 env:
-  BRANCH: ${{ github.event.workflow_run.conclusion }}
+  BRANCH: ${{ github.event.workflow_run.head_branch }}
   EVENT_CONTEXT: ${{ toJSON(github.event) }}
   ACTION_TOKEN: ${{ secrets.ACTION_TOKEN }}
 
