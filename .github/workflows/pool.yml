@@ -3,7 +3,7 @@ name: pool
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: [ test ]
+    workflows: [ build ]
     types: [ requested ]
 
 jobs:
