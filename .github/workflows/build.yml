@@ -7,3 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: git branch
+  test:
+    uses: .github/workflows/test.yml
+    needs: main
