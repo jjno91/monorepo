@@ -1,5 +1,5 @@
 name: destroy
-on: [ delete ]
+on: delete
 
 jobs:
   main:
