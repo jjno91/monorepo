@@ -1,9 +1,9 @@
 name: destroy
-on: [ delete ]
+on: [ workflow_dispatch, delete ]
 
 jobs:
   main:
     runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v3
       - run: git branch
