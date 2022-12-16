@@ -5,4 +5,4 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      - run: git branch
+      - run: echo
