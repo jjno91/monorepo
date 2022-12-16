@@ -1,0 +1,14 @@
+name: pool
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [ test ]
+    types: [ requested ]
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: git branch
