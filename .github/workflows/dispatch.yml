@@ -6,7 +6,7 @@ on:
     types: completed
 
 env:
-  BRANCH: ${{ github.event.workflow_run.branch }}
+  BRANCH: ${{ github.event.workflow_run.conclusion }}
   ACTION_TOKEN: ${{ secrets.ACTION_TOKEN }}
 
 jobs:
