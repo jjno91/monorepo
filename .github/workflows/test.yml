@@ -11,3 +11,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: git branch
+  status:
+    runs-on: ubuntu-latest
+    needs: main
+    steps:
+      - uses: LouisBrunner/checks-action@v1.5.0
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: apply
+          conclusion: success
