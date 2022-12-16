@@ -1,8 +1,14 @@
 name: test
-on: [ workflow_dispatch, workflow_call ]
+on: [ workflow_dispatch, push ]
 
 jobs:
   main:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - uses: actions/checkout@v3
+      - run: git branch
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
