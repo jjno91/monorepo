@@ -1,4 +1,4 @@
-name: Pool
+name: pool
 
 on:
   workflow_dispatch:
