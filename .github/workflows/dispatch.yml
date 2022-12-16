@@ -8,11 +8,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.name == github.job }}
+    if: ${{ github.event.workflow_run.name == 'build' }}
     steps:
       - run: echo "trigger apply"
   apply:
     runs-on: ubuntu-latest
-    if: ${{ github.event.workflow_run.name == github.job }}
+    if: ${{ github.event.workflow_run.name == 'apply' }}
     steps:
       - run: echo "trigger test"
