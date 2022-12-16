@@ -1,5 +1,10 @@
-name: build
-on: [ push, workflow_dispatch ]
+name: pool
+
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows: [ build ]
+    types: [ requested ]
 
 jobs:
   main:
