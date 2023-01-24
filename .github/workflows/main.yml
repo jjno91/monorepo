@@ -2,8 +2,8 @@ name: main
 on: push
 
 env:
-  CONTEXT: ${{ toJSON(github) }}
   DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+  CONTEXT: ${{ toJSON(github) }}
 
 jobs:
   build:
