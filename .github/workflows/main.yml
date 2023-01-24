@@ -33,6 +33,7 @@ jobs:
       - run: terraform init
       - run: terraform validate
       - run: terraform plan -out=terraform.tfplan
+      - run: echo prevent old applies
       - run: terraform apply -auto-approve terraform.tfplan
       - run: terraform plan -detailed-exitcode
   test:
