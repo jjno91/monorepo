@@ -36,6 +36,7 @@ jobs:
       - run: echo prevent old applies
       - run: terraform apply -auto-approve terraform.tfplan
       - run: terraform plan -detailed-exitcode
+      - run: find .
   test:
     runs-on: ubuntu-latest
     needs: terraform
