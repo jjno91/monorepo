@@ -33,7 +33,7 @@ jobs:
         with:
           role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/${{ vars.AWS_ROLE_NAME }}
           aws-region: ${{ vars.AWS_DEFAULT_REGION }}
-      - uses: champ-oss/action-terraform-config@v1.0.1-9188739 # https://github.com/champ-oss/action-terraform-config/tags
+      - uses: champ-oss/action-terraform-config@develop # https://github.com/champ-oss/action-terraform-config/tags
       - run: terraform init
       - run: terraform validate
       - run: terraform plan -out=terraform.tfplan
