@@ -11,6 +11,7 @@ jobs:
     needs: build
     permissions:
       id-token: write # required for aws-actions/configure-aws-credentials
+    concurrency: terraform-${{ github.ref }}
     defaults:
       run:
         working-directory: terraform
