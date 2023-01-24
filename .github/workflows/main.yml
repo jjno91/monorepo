@@ -3,6 +3,7 @@ on: push
 
 env:
   CONTEXT: ${{ toJSON(github) }}
+  DEFAULT_BRANCH: ${{ github.repository.default_branch }}
 
 jobs:
   build:
