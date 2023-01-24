@@ -1,7 +1,3 @@
-resource "aws_ssm_parameter" "this" {
-  name  = var.name
-  type  = "String"
-  value = "this"
+resource "aws_s3_bucket" "b" {
+  bucket_prefix = "monorepo-"
 }
-
-variable "name" { default = "monorepo" }
