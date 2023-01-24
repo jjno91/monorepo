@@ -1,9 +1,10 @@
 name: destroy
 on: delete # workflow_dispatch enables the destruction of protected branches
+concurrency: terraform-${{ github.event.delete.ref }}
 
 jobs:
   main:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: echo destroy {{ github.event.workflow_run.branch }}
+      - run: echo destroy ${{ github.event.delete.ref }}
