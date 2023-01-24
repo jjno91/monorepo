@@ -1,6 +1,9 @@
 name: main
 on: push
 
+env:
+  CONTEXT: ${{ toJSON(github) }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
