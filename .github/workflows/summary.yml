@@ -1,10 +1,5 @@
-name: plan
-
-on:
-  workflow_dispatch:
-  push:
-    branches-ignore:
-      - main
+name: summary
+on: pull_request
 
 env:
   CONTEXT: ${{ toJSON(github) }}
@@ -37,6 +32,9 @@ jobs:
       - uses: champ-oss/action-terraform-config@develop # https://github.com/champ-oss/action-terraform-config/tags
       - run: terraform init
       - run: terraform validate
-      - run: terraform plan
+      - uses: champ-oss/terraform-pr-summary@v1.0.25-d2276ec
+        with:
+          token: ${{ github.token }}
+          working-directory: terraform
       - run: find .
       - run: cat backend.tf
