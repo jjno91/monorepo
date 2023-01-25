@@ -13,6 +13,7 @@ env:
 
 permissions:
   id-token: write # required for aws-actions/configure-aws-credentials
+  pull-requests: write # required for champ-oss/terraform-pr-summary
 
 jobs:
   main:
