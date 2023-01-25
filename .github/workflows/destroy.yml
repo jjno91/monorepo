@@ -26,4 +26,4 @@ jobs:
           aws-region: ${{ vars.AWS_DEFAULT_REGION }}
       - uses: champ-oss/action-terraform-config@develop # https://github.com/champ-oss/action-terraform-config/tags
       - run: terraform init
-      - run: terraform destroy
+      - run: terraform destroy -auto-approve
