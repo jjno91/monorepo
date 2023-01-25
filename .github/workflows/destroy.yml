@@ -6,6 +6,9 @@ env:
   CONTEXT: ${{ toJSON(github) }}
   GITHUB_REF_NAME: ${{ github.event.ref }}
 
+permissions:
+  id-token: write # required for aws-actions/configure-aws-credentials
+
 jobs:
   main:
     runs-on: ubuntu-latest
