@@ -36,5 +36,3 @@ jobs:
       - uses: champ-oss/terraform-pr-summary@develop
         with:
           working-directory: terraform
-      - run: find .
-      - run: cat backend.tf
