@@ -1,0 +1,39 @@
+name: plan
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches-ignore:
+      - main
+
+env:
+  CONTEXT: ${{ toJSON(github) }}
+  GITHUB_REF_NAME: ${{ github.event.ref }}
+
+permissions:
+  id-token: write # required for aws-actions/configure-aws-credentials
+
+jobs:
+  main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-python@v4 # https://github.com/actions/setup-python/tags
+        with:
+          python-version: '3.11' # https://github.com/python/cpython/tags
+      - uses: hashicorp/setup-terraform@v2 # https://github.com/hashicorp/setup-terraform/tags
+        with:
+          terraform_version: 1.3.6 # https://github.com/hashicorp/terraform/tags
+          terraform_wrapper: false
+      - uses: aws-actions/configure-aws-credentials@v1-node16 # https://github.com/aws-actions/configure-aws-credentials/tags
+        with:
+          role-to-assume: arn:aws:iam::${{ vars.AWS_ACCOUNT_ID }}:role/${{ vars.AWS_ROLE_NAME }}
+          aws-region: ${{ vars.AWS_DEFAULT_REGION }}
+      - uses: champ-oss/action-terraform-config@develop # https://github.com/champ-oss/action-terraform-config/tags
+      - run: terraform init
+      - run: terraform plan
+      - run: terraform validate
+      - uses: champ-oss/terraform-pr-summary@v1.0.25-d2276ec
+        if: github.event_name == 'pull_request'
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
