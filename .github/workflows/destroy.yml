@@ -27,3 +27,4 @@ jobs:
       - uses: champ-oss/action-terraform-config@develop # https://github.com/champ-oss/action-terraform-config/tags
       - run: terraform init
       - run: terraform destroy -auto-approve
+      - run: cat backend.tf
