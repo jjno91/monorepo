@@ -45,3 +45,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           working-directory: terraform
       - run: find .
+      - run: cat backend.tf
