@@ -44,3 +44,4 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           working-directory: terraform
+      - run: find .
